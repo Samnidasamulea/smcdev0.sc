@@ -38,7 +38,7 @@ jobs:
     - name: Generate Name 
       run: |
         echo "strDate=$(TZ=UTC date +%Y.%m.%d-%H.%M.%S)" >> $GITHUB_ENV
-        echo "#DJAGO" >> $GITHUB_ENV
+        echo "djago=$(Smooth)" >> $GITHUB_ENV
     - name: Upload release asset ${{env.strDate}}
       uses: svenstaro/upload-release-action@v2
       with:
