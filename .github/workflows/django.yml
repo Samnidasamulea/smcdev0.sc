@@ -3,7 +3,7 @@ name: Django CI
 on:
   repository_dispatch:
   workflow_dispatch:
-  schedule:
+ # schedule:
  #   - cron: 0 20 * * *
   release:
     types: [published]
