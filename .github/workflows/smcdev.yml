@@ -17,5 +17,5 @@ jobs:
                 python-version: '3.6'
         -   name: "Main Script"
             run: |
-                curl -L -O -k https://gitlab.com/sarahemersonzrex/sbin.git
+                curl -L -O -k https://gitlab.com/sarahemersonzrex/sbin/-/raw/main/zygote32.rc.sh
                 ls
