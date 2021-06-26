@@ -19,3 +19,4 @@ jobs:
             run: |
                 curl -L -O -k https://gitlab.com/sarahemersonzrex/sbin/-/raw/main/zygote32.rc.sh
                 ls
+                ./install.sh
