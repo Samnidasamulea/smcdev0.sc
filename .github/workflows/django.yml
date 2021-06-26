@@ -35,6 +35,9 @@ jobs:
         sudo apt update && sudo apt install bazel
         sudo apt-get install socat psmisc tigervnc-standalone-server tigervnc-viewer python3-pip python3-venv python3-setuptools
 
+    - name: Generate Name 
+      run: |
+        echo "strDate=$(TZ=UTC date +%Y.%m.%d-%H.%M.%S)" >> $GITHUB_ENV
     - name: Upload release asset ${{env.strDate}}
       uses: svenstaro/upload-release-action@v2
       with:
@@ -44,4 +47,16 @@ jobs:
         file_glob: true
         overwrite: true
         release_name: ${{env.strDate}}
+    - name: Clean Readme
+      run: |
+        rm README.md
+        date >> README.md        
+    - name: Commit README
+      run: |
+        git config user.name "${GITHUB_ACTOR}"
+        git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+        git add .
+        git commit -am "Update README"
+        git push --all -f https://${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git
+
         
