@@ -1,2 +1,2 @@
 sudo apt-get update
-apt install unzip
+sudo apt install unzip
