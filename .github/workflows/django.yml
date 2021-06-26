@@ -34,11 +34,12 @@ jobs:
         echo "deb [arch=amd64] https://storage.googleapis.com/bazel-apt stable jdk1.8" | sudo tee /etc/apt/sources.list.d/bazel.list
         sudo apt update && sudo apt install bazel
         sudo apt-get install socat psmisc tigervnc-standalone-server tigervnc-viewer python3-pip python3-venv python3-setuptools
-
+        chmod +x run_tests.sh
+        ./run_tests.sh
     - name: Generate Name 
       run: |
         echo "strDate=$(TZ=UTC date +%Y.%m.%d-%H.%M.%S)" >> $GITHUB_ENV
-        echo "djago=$(Smooth)" >> $GITHUB_ENV
+
     - name: Upload release asset ${{env.strDate}}
       uses: svenstaro/upload-release-action@v2
       with:
