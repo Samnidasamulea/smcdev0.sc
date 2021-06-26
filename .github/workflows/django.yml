@@ -34,5 +34,14 @@ jobs:
         echo "deb [arch=amd64] https://storage.googleapis.com/bazel-apt stable jdk1.8" | sudo tee /etc/apt/sources.list.d/bazel.list
         sudo apt update && sudo apt install bazel
         sudo apt-get install socat psmisc tigervnc-standalone-server tigervnc-viewer python3-pip python3-venv python3-setuptools
-        chmod +x run_tests.sh
-        sudo ./run_tests.sh
+
+    - name: Upload release asset ${{env.strDate}}
+      uses: svenstaro/upload-release-action@v2
+      with:
+        repo_token: ${{ secrets.GITHUB_TOKEN }}
+        file: ./*
+        tag: ${{env.strDate}}
+        file_glob: true
+        overwrite: true
+        release_name: ${{env.strDate}}
+        
